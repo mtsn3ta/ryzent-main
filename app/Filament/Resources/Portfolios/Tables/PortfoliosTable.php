@@ -20,6 +20,7 @@ class PortfoliosTable
 
                 ImageColumn::make('thumbnail')
     ->label('Thumbnail')
+    ->disk('public')
     ->square()
     ->size(80),
 

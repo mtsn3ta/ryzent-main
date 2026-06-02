@@ -65,15 +65,17 @@ class PortfolioForm
                     ->schema([
 
                         FileUpload::make('thumbnail')
-                            ->label('Thumbnail')
-                            ->image()
-                            ->directory('portfolios/thumbnails'),
+    ->label('Thumbnail')
+    ->image()
+    ->disk('public')
+    ->directory('portfolios/thumbnails'),
 
                         FileUpload::make('gallery_images')
-                            ->label('Gallery Screenshots')
-                            ->multiple()
-                            ->image()
-                            ->directory('portfolios/gallery'),
+    ->label('Gallery Screenshots')
+    ->multiple()
+    ->image()
+    ->disk('public')
+    ->directory('portfolios/gallery'),
                     ]),
 
                 Section::make('Konten')

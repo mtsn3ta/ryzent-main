@@ -53,6 +53,7 @@ class PostForm
                         FileUpload::make('featured_image')
                             ->label('Thumbnail')
                             ->image()
+                            ->disk('public')
                             ->directory('posts'),
 
                         Textarea::make('excerpt')

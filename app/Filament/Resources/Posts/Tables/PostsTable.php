@@ -19,7 +19,8 @@ class PostsTable
 
                 ImageColumn::make('featured_image')
                     ->label('Thumbnail')
-                    ->square(),
+                    ->square()
+                    ->disk('public'),
 
                 TextColumn::make('title')
                     ->label('Judul')
