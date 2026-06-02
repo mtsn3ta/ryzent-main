@@ -13,7 +13,7 @@
                     Home
                 </a>
 
-                <a href="/services" class="text-slate-600 hover:text-blue-600">
+                <a href="{{ route('services.index') }}" class="text-slate-600 hover:text-blue-600">
                     Services
                 </a>
 

@@ -77,7 +77,7 @@ text-slate-900
                 <div class="mt-10 flex flex-wrap gap-4">
 
                     <a
-                        href="#portfolio"
+                        href="{{ route('portfolio.index') }}"
                         class="
         rounded-2xl
         bg-gradient-to-r
@@ -313,19 +313,20 @@ text-slate-900
 
                 <div class="relative z-10 mt-6">
 
-                    <span
+                    <a
+                        href="{{ route('services.show', $service->slug) }}"
                         class="
-        inline-flex
-        items-center
-        gap-2
-        text-sm
-        font-medium
-        text-blue-600
-        transition
-        group-hover:gap-3
-        ">
+    inline-flex
+    items-center
+    gap-2
+    text-sm
+    font-medium
+    text-blue-600
+    transition
+    group-hover:gap-3
+    ">
                         Pelajari Lebih Lanjut →
-                    </span>
+                    </a>
 
                 </div>
 
@@ -498,7 +499,7 @@ group-hover:opacity-100
                         </span>
 
                         <a
-                            href="#"
+                            href="{{ route('portfolio.show', $portfolio->slug) }}"
                             class="font-medium text-blue-600">
                             Detail →
                         </a>
@@ -692,7 +693,7 @@ pointer-events-none
                         </span>
 
                         <a
-                            href="#"
+                            href="{{ route('blog.show', $post->slug) }}"
                             class="font-medium text-blue-600">
                             Baca →
                         </a>
