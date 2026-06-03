@@ -61,47 +61,75 @@ class ViewContact extends ViewRecord
                 }),
 
             Action::make('timeline')
-    ->label('Timeline')
-    ->icon('heroicon-o-clock')
-    ->modalHeading('Activity Timeline')
-    ->modalSubmitAction(false)
-    ->modalCancelActionLabel('Tutup')
-    ->modalContent(function () {
+                ->label('Timeline')
+                ->icon('heroicon-o-clock')
+                ->modalHeading('Activity Timeline')
+                ->modalSubmitAction(false)
+                ->modalCancelActionLabel('Tutup')
+                ->modalContent(function () {
 
-        $activities = Activity::query()
-            ->where('subject_type', \App\Models\Contact::class)
-            ->where('subject_id', $this->record->id)
-            ->latest()
-            ->get();
+                    $activities = Activity::query()
+                        ->where('subject_type', \App\Models\Contact::class)
+                        ->where('subject_id', $this->record->id)
+                        ->latest()
+                        ->get();
 
-        $html = '<div class="space-y-4">';
+                    $html = '<div class="space-y-4">';
 
-        foreach ($activities as $activity) {
+                    foreach ($activities as $activity) {
 
-            $html .= '<div style="border-left:3px solid #3b82f6;padding-left:12px;margin-bottom:12px;">';
+                        $props = $activity->properties->toArray();
 
-            $html .= '<strong>'
-                . ucfirst($activity->description)
-                . '</strong><br>';
+                        $html .= '<div style="border-left:3px solid #3b82f6;padding-left:12px;margin-bottom:16px;">';
 
-            $html .= '<small>'
-                . $activity->created_at->format('d M Y H:i')
-                . '</small>';
+                        if (
+                            isset($props['old']['status']) &&
+                            isset($props['attributes']['status'])
+                        ) {
 
-            $html .= '<pre style="margin-top:8px;font-size:12px;">'
-                . json_encode(
-                    $activity->properties,
-                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
-                )
-                . '</pre>';
+                            $html .= '<strong>🟡 Status Berubah</strong><br>';
 
-            $html .= '</div>';
-        }
+                            $html .= $props['old']['status']
+                                . ' → '
+                                . $props['attributes']['status'];
+                        } elseif (
+                            isset($props['old']['is_read']) &&
+                            isset($props['attributes']['is_read'])
+                        ) {
 
-        $html .= '</div>';
+                            $html .= '<strong>👁 Lead Dibaca</strong><br>';
 
-        return new \Illuminate\Support\HtmlString($html);
-    }),
+                            $html .= (
+                                $props['old']['is_read']
+                                ? 'Dibaca'
+                                : 'Belum Dibaca'
+                            );
+
+                            $html .= ' → ';
+
+                            $html .= (
+                                $props['attributes']['is_read']
+                                ? 'Dibaca'
+                                : 'Belum Dibaca'
+                            );
+                        } else {
+
+                            $html .= '<strong>'
+                                . ucfirst($activity->description)
+                                . '</strong>';
+                        }
+
+                        $html .= '<br><small style="color:gray;">'
+                            . $activity->created_at->format('d M Y H:i')
+                            . '</small>';
+
+                        $html .= '</div>';
+                    }
+
+                    $html .= '</div>';
+
+                    return new \Illuminate\Support\HtmlString($html);
+                }),
 
         ];
     }
