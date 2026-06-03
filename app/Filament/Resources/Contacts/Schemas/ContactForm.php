@@ -7,6 +7,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
 
 class ContactForm
 {
@@ -51,13 +52,25 @@ class ContactForm
                     ]),
 
                 Section::make('Status')
-                    ->schema([
+    ->schema([
 
-                        Toggle::make('is_read')
-                            ->label('Sudah Dibaca')
-                            ->default(false),
+        Select::make('status')
+            ->options([
+                'New' => 'New',
+                'Contacted' => 'Contacted',
+                'Negotiation' => 'Negotiation',
+                'Won' => 'Won',
+                'Lost' => 'Lost',
+            ])
+            ->default('New')
+            ->required(),
 
-                    ]),
+        Toggle::make('is_read')
+            ->label('Sudah Dibaca')
+            ->default(false),
+
+    ])
+    ->columns(2),
             ]);
     }
 }

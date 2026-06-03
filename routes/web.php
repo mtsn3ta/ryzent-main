@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', HomeController::class);
 
@@ -24,3 +25,5 @@ Route::get('/services', [ServiceController::class, 'index'])
 
 Route::get('/services/{slug}', [ServiceController::class, 'show'])
     ->name('services.show');
+    Route::post('/contact', [ContactController::class, 'store'])
+    ->name('contact.store');

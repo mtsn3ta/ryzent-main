@@ -1,5 +1,4 @@
-<footer
-    class="
+<footer class="
     relative
     overflow-hidden
     bg-slate-950
@@ -15,7 +14,8 @@
     rounded-full
     bg-blue-500/10
     blur-[120px]
-    "></div>
+    ">
+    </div>
 
     <div
         class="
@@ -27,41 +27,37 @@
     rounded-full
     bg-cyan-500/10
     blur-[120px]
-    "></div>
+    ">
+    </div>
     <div class="relative max-w-7xl mx-auto px-6 py-20">
         <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-            <div>
+            <div class="flex items-center gap-3">
 
-                <h3
-                    class="
-        text-2xl
-        font-bold
-        text-white
-        ">
-                    Ry<span class="text-cyan-400">zent</span>
-                </h3>
+                @if ($siteSettings?->logo)
+                    <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->site_name }}"
+                        class="h-10 w-auto">
+                @endif
 
-                <p class="mt-4 text-slate-400">
-                    Building modern websites,
-                    SaaS platforms, AI solutions,
-                    and digital infrastructure.
-                </p>
+                <div>
+                    <h3
+                        class="
+    text-xl
+    font-bold
+    bg-gradient-to-r
+    from-white
+    to-cyan-300
+    bg-clip-text
+    text-transparent
+    ">
+                        {{ $siteSettings?->site_name ?? 'Ryzent' }}
+                    </h3>
 
-            </div>
-            <div>
-
-                <h4 class="font-semibold text-white">
-                    Services
-                </h4>
-
-                <ul class="mt-4 space-y-3">
-
-                    <li>Website Development</li>
-                    <li>SaaS Development</li>
-                    <li>AI Solutions</li>
-                    <li>Cloud Infrastructure</li>
-
-                </ul>
+                    @if ($siteSettings?->tagline)
+                        <p class="text-sm text-slate-400">
+                            {{ $siteSettings?->tagline }}
+                        </p>
+                    @endif
+                </div>
 
             </div>
             <div>
@@ -97,32 +93,39 @@
                     Contact
                 </h4>
 
-                <ul class="mt-4 space-y-3">
+                <ul class="mt-4 space-y-3 text-slate-300">
 
-                    <li>
-                        https://ryzent.my.id
-                    </li>
+                    @if ($siteSettings?->email)
+                        <li>
+                            {{ $siteSettings->email }}
+                        </li>
+                    @endif
 
-                    <li>
-                        +62 821 65684828
-                    </li>
+                    @if ($siteSettings?->phone)
+                        <li>
+                            {{ $siteSettings->phone }}
+                        </li>
+                    @endif
 
-                    <li>
-                        Indonesia
-                    </li>
+                    @if ($siteSettings?->address)
+                        <li>
+                            {{ $siteSettings->address }}
+                        </li>
+                    @endif
 
                 </ul>
 
             </div>
-            <div
-                class="
+
+        </div>
+        <div class="
     mt-16
     border-t
     border-slate-800
     pt-8
     ">
-                <div
-                    class="
+            <div
+                class="
     flex
     flex-col
     items-center
@@ -133,17 +136,16 @@
     md:flex-row
     ">
 
-                    <p>
-                        © {{ date('Y') }}
-                        Ryzent Cipta Digital.
-                        All rights reserved.
-                    </p>
+                <p>
+                    © {{ date('Y') }}
+                    {{ $siteSettings?->site_name ?? 'Ryzent' }}.
+                    All rights reserved.
+                </p>
 
-                    <p>
-                        Built with Laravel & Filament
-                    </p>
+                <p>
+                    Built with Laravel & Filament
+                </p>
 
-                </div>
             </div>
         </div>
 </footer>
