@@ -13,12 +13,18 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\ViewAction;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 
 class ContactsTable
 {
     public static function configure(Table $table): Table
-    {
-        return $table
+{
+    return $table
+
+        ->headerActions([
+            ExportAction::make()
+                ->label('Export Leads'),
+        ])
             ->columns([
 
     TextColumn::make('name')
@@ -150,9 +156,10 @@ class ContactsTable
 ])
 
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
+    BulkActionGroup::make([
+        DeleteBulkAction::make(),
+    ]),
+
+]);
     }
 }

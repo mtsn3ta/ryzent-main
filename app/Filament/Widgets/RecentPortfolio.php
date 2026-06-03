@@ -14,7 +14,7 @@ class RecentPortfolio extends TableWidget
 
     protected int|string|array $columnSpan = 'full';
 
-    protected static ?int $sort = 5;
+    protected static ?int $sort = 8;
 
     public function table(Table $table): Table
     {
