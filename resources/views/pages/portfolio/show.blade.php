@@ -89,6 +89,29 @@
                 ">
 
         @endif
+        
+        @if($portfolio->gallery_images)
+
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+
+            @foreach($portfolio->gallery_images as $image)
+
+                <img
+                    src="{{ asset('storage/' . $image) }}"
+                    alt="{{ $portfolio->title }}"
+                    class="
+                        w-full
+                        rounded-[24px]
+                        shadow-lg
+                        transition
+                        hover:scale-[1.02]
+                        ">
+
+            @endforeach
+
+        </div>
+
+        @endif
 
         {{-- Content --}}
         <div
@@ -117,14 +140,9 @@
             @endif
 
             @if($portfolio->content)
-
-            <div
-                class="
-                    prose
-                    prose-slate
-                    mt-10
-                    max-w-none
-                    ">
+            
+            {{-- Menggunakan class prose bawaan Tailwind Typography --}}
+            <div class="prose prose-slate mt-10 max-w-none">
                 {!! $portfolio->content !!}
             </div>
 

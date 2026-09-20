@@ -103,13 +103,8 @@
 
             @if($service->content)
 
-            <div
-                class="
-                    prose
-                    prose-slate
-                    mt-10
-                    max-w-none
-                    ">
+            {{-- Menggunakan class prose bawaan Tailwind Typography --}}
+            <div class="prose prose-slate mt-10 max-w-none">
                 {!! $service->content !!}
             </div>
 

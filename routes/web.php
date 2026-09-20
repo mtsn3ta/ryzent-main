@@ -27,3 +27,6 @@ Route::get('/services/{slug}', [ServiceController::class, 'show'])
     ->name('services.show');
     Route::post('/contact', [ContactController::class, 'store'])
     ->name('contact.store');
+Route::get('/form-nestcompany', function () {
+    return view('pages.form-nestcompany');
+});

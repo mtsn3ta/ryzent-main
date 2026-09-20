@@ -25,9 +25,11 @@ class RecentPortfolio extends TableWidget
 
             ->columns([
 
-                Tables\Columns\ImageColumn::make('thumbnail')
-                    ->label('Thumbnail')
-                    ->square(),
+Tables\Columns\ImageColumn::make('thumbnail')
+    ->label('Thumbnail')
+    ->disk('public')
+    ->visibility('public')
+    ->square(),
 
                 Tables\Columns\TextColumn::make('title')
                     ->label('Project')

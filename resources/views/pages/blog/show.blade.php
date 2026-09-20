@@ -79,10 +79,9 @@
         </div>
 
         {{-- Thumbnail --}}
-        @if($post->thumbnail)
-
+        @if($post->featured_image)
         <img
-            src="{{ asset('storage/' . $post->thumbnail) }}"
+            src="{{ asset('storage/' . $post->featured_image) }}"
             alt="{{ $post->title }}"
             class="
                 mt-12
@@ -90,7 +89,6 @@
                 rounded-[32px]
                 shadow-xl
                 ">
-
         @endif
 
         {{-- Content --}}
@@ -105,15 +103,9 @@
             shadow-xl
             backdrop-blur-xl
             ">
-
-            <div
-                class="
-                prose
-                prose-slate
-                max-w-none
-                prose-headings:font-bold
-                prose-a:text-blue-600
-                ">
+            
+            {{-- Menggunakan class prose bawaan Tailwind Typography --}}
+            <div class="prose prose-slate max-w-none">
                 {!! $post->content !!}
             </div>
 

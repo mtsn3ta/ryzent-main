@@ -9,12 +9,11 @@
     bg-[size:4rem_4rem]">
         </div>
 
-        <div class="absolute -left-40 top-10 -z-10 h-[500px] w-[500px]
-    rounded-full bg-blue-500/15 blur-[120px]"></div>
+<div class="absolute -left-40 top-10 -z-10 h-[500px] w-[500px]
+rounded-full bg-blue-500/15 blur-[120px]"></div>
 
-        <div class="absolute -right-40 top-20 -z-10 h-[500px] w-[500px]
-    rounded-full bg-cyan-500/15 blur-[120px]"></div>
-
+<div class="absolute -right-40 top-20 -z-10 h-[500px] w-[500px]
+rounded-full bg-cyan-500/15 blur-[120px]"></div>
         <div class="max-w-7xl mx-auto px-6 py-24">
 
             <div class="grid lg:grid-cols-2 gap-16 items-center">
