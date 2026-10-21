@@ -30,6 +30,7 @@
     <meta name="twitter:description" content="@yield('meta_description', $siteSettings?->meta_description ?? 'Membangun Website, SaaS, dan Solusi AI Modern.')">
     <meta name="theme-color" content="#020617">
     <link rel="canonical" href="{{ url()->current() }}">
+    @stack('preload')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @if ($siteSettings?->favicon)

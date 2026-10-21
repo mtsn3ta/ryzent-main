@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+@push('preload')
+    @if ($firstPortfolio = $portfolios->first())
+        @php
+            $firstWebp = preg_replace('/\.(png|jpe?g)$/i', '.webp', $firstPortfolio->thumbnail);
+        @endphp
+        <link rel="preload" as="image" href="{{ asset('storage/' . $firstWebp) }}" type="image/webp" fetchpriority="high">
+    @endif
+@endpush
+
 @section('content')
     <section class="relative overflow-hidden">
         <div
@@ -118,7 +127,10 @@ text-slate-900
                 }, 5000)" class="relative">
 
                     @foreach ($portfolios as $index => $portfolio)
-                        <div x-show="active === {{ $index }}" x-transition:enter="transition ease-out duration-500"
+                        <div x-show="active === {{ $index }}"
+                            {{ $index > 0 ? 'x-cloak' : '' }}
+                            style="{{ $index > 0 ? 'display: none;' : '' }}"
+                            x-transition:enter="transition ease-out duration-500"
                             x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
                             class="rounded-4xl border border-white/40 dark:border-slate-800 bg-white/70 dark:bg-slate-900/80 p-6 shadow-2xl backdrop-blur-xl">
                             <div
@@ -128,19 +140,25 @@ text-slate-900
     items-center
     gap-2
     rounded-full
-    bg-slate-100
+    bg-slate-100 dark:bg-slate-800
     px-3
     py-1
     text-xs
-    font-medium
-    text-slate-600
+    font-semibold
+    text-slate-700 dark:text-slate-300
     ">
                                 🚀 Featured Project
                             </div>
-                            <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}"
-                                width="600" height="375"
-                                {{ $loop->first ? 'fetchpriority=high' : 'loading=lazy decoding=async' }}
-                                class="w-full h-auto aspect-[16/10] object-cover rounded-2xl">
+                            <picture>
+                                @php
+                                    $heroWebp = preg_replace('/\.(png|jpe?g)$/i', '.webp', $portfolio->thumbnail);
+                                @endphp
+                                <source srcset="{{ asset('storage/' . $heroWebp) }}" type="image/webp">
+                                <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}"
+                                    width="600" height="375"
+                                    {{ $loop->first ? 'fetchpriority=high' : 'loading=lazy decoding=async' }}
+                                    class="w-full h-auto aspect-[16/10] object-cover rounded-2xl">
+                            </picture>
 
                             <div class="mt-5">
 
@@ -404,9 +422,14 @@ hover:shadow-2xl
 ">
 
                         @if ($portfolio->thumbnail)
-                            <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}"
-                                width="400" height="224" loading="lazy" decoding="async"
-                                class="
+                            <picture>
+                                @php
+                                    $gridWebp = preg_replace('/\.(png|jpe?g)$/i', '.webp', $portfolio->thumbnail);
+                                @endphp
+                                <source srcset="{{ asset('storage/' . $gridWebp) }}" type="image/webp">
+                                <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}"
+                                    width="400" height="224" loading="lazy" decoding="async"
+                                    class="
         h-56
         w-full
         object-cover
@@ -414,6 +437,7 @@ hover:shadow-2xl
         duration-700
         group-hover:scale-110
     ">
+                            </picture>
                             <div
                                 class="
 absolute
@@ -603,9 +627,15 @@ pointer-events-none
             hover:shadow-2xl
             ">
                         @if ($post->featured_image ?? $post->thumbnail)
-                            <img src="{{ asset('storage/' . ($post->featured_image ?? $post->thumbnail)) }}" alt="{{ $post->title }}"
-                                width="400" height="224" loading="lazy" decoding="async"
-                                class="
+                            <picture>
+                                @php
+                                    $postImg = $post->featured_image ?? $post->thumbnail;
+                                    $postWebp = preg_replace('/\.[a-z0-9]+$/i', '.webp', $postImg);
+                                @endphp
+                                <source srcset="{{ asset('storage/' . $postWebp) }}" type="image/webp">
+                                <img src="{{ asset('storage/' . $postImg) }}" alt="{{ $post->title }}"
+                                    width="400" height="224" loading="lazy" decoding="async"
+                                    class="
         h-56
         w-full
         object-cover
@@ -613,6 +643,7 @@ pointer-events-none
         duration-700
         group-hover:scale-105
         ">
+                            </picture>
                         @endif
                         <div class="p-6">
 
