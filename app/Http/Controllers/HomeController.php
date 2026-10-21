@@ -23,7 +23,8 @@ class HomeController extends Controller
             ->get();
 
         $posts = Post::query()
-            ->latest()
+            ->where('status', 'published')
+            ->latest('published_at')
             ->take(3)
             ->get();
 

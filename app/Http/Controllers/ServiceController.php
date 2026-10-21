@@ -22,6 +22,12 @@ class ServiceController extends Controller
             ->where('slug', $slug)
             ->firstOrFail();
 
-        return view('pages.services.show', compact('service'));
+        $otherServices = Service::query()
+            ->where('id', '!=', $service->id)
+            ->orderBy('sort_order')
+            ->take(3)
+            ->get();
+
+        return view('pages.services.show', compact('service', 'otherServices'));
     }
 }

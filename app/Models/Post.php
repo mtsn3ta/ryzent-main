@@ -23,6 +23,11 @@ class Post extends Model
         'published_at' => 'datetime',
     ];
 
+    public function getThumbnailAttribute(): ?string
+    {
+        return $this->featured_image;
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
