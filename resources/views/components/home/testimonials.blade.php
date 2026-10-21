@@ -31,9 +31,9 @@
                     },
                     {
                         name: 'Coach Bagus Hendro',
-                        role: 'Pelatih Kepala & Pengelola Atletik',
-                        category: 'Platform NESTAthletic (atletik.ryzent.id)',
-                        text: 'Dengan hadirnya sistem NESTAthletic di atletik.ryzent.id, manajemen data atlet, kartu digital ber-QR token unik, dan raport performa fisik kini tersusun rapi otomatis. Orang tua atlet sangat senang karena bisa memantau perkembangan anak secara transparan tanpa repot.',
+                        role: 'Ketua Panitia Pelaksana Kejuaraan Atletik',
+                        category: 'Platform Kejuaraan (atletik.ryzent.id)',
+                        text: 'Sebelum menggunakan atletik.ryzent.id, mengelola pendaftaran atlet, pembagian seri lomba, dan rekap hasil memakan waktu berhari-hari dengan risiko salah input di spreadsheet. Sekarang dari pendaftaran nomor lomba, penerbitan buku acara (start list), hingga buku hasil resmi (result book) selesai hitungan menit!',
                         rating: 5
                     },
                     {
