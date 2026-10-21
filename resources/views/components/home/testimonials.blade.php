@@ -23,7 +23,7 @@
                 active: 0,
                 testimonials: [
                     {
-                        name: 'Drs. H. Syamsul Huda, M.Pd.I',
+                        name: 'Suyoko, S.Pd, M.KPd',
                         role: 'Kepala MTsN 3 Tulungagung',
                         category: 'Website Sekolah & Sistem Kelulusan',
                         text: 'Sistem informasi dan platform kelulusan online yang dibangun oleh tim Ryzent sangat membantu sekolah kami. Ribuan wali murid dan siswa dapat mengakses pengumuman secara serentak dengan sangat cepat tanpa kendala server down. Dukungan teknisnya sangat responsif dan dapat diandalkan!',
