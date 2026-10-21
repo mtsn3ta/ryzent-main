@@ -29,7 +29,7 @@ gap-2
 rounded-full
 border
 border-blue-200
-bg-white/80
+bg-white/80 dark:bg-slate-900/80
 px-4
 py-2
 text-sm
@@ -60,7 +60,7 @@ text-slate-900
                         </span>
                     </h1>
 
-                    <p class="mt-6 text-lg text-slate-600">
+                    <p class="mt-6 text-lg text-slate-600 dark:text-slate-300">
                         Ryzent membantu sekolah,
                         organisasi olahraga,
                         dan bisnis membangun
@@ -94,7 +94,7 @@ text-slate-900
         rounded-2xl
         border
         border-slate-200
-        bg-white/70
+        bg-white/70 dark:bg-slate-900/80
         px-7
         py-4
         font-medium
@@ -120,7 +120,7 @@ text-slate-900
                     @foreach ($portfolios as $index => $portfolio)
                         <div x-show="active === {{ $index }}" x-transition:enter="transition ease-out duration-500"
                             x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
-                            class="rounded-4xl border border-white/40 bg-white/70 p-6 shadow-2xl backdrop-blur-xl">
+                            class="rounded-4xl border border-white/40 dark:border-slate-800 bg-white/70 dark:bg-slate-900/80 p-6 shadow-2xl backdrop-blur-xl">
                             <div
                                 class="
     mb-4
@@ -191,6 +191,8 @@ text-slate-900
 
     </section>
 
+    @include('components.home.stats-and-tech')
+
     <section id="services" class="relative py-24">
         <div class="absolute inset-0 -z-10 bg-linear-to-b
     from-slate-50
@@ -209,7 +211,7 @@ text-slate-900
             rounded-full
             border
             border-blue-200
-            bg-white/80
+            bg-white/80 dark:bg-slate-900/80
             px-4
             py-2
             text-sm
@@ -230,7 +232,7 @@ text-slate-900
                     Layanan Kami
                 </h2>
 
-                <p class="mt-4 text-slate-600">
+                <p class="mt-4 text-slate-600 dark:text-slate-300">
                     Solusi digital untuk sekolah,
                     organisasi, dan bisnis modern.
                 </p>
@@ -247,8 +249,8 @@ relative
 overflow-hidden
 rounded-[28px]
 border
-border-white/40
-bg-white/70
+border-white/40 dark:border-slate-800
+bg-white/70 dark:bg-slate-900/80
 p-8
 shadow-sm
 backdrop-blur-xl
@@ -278,7 +280,7 @@ text-slate-900
                             {{ $service->title }}
                         </h3>
 
-                        <p class="relative z-10 mt-4 text-slate-600">
+                        <p class="relative z-10 mt-4 text-slate-600 dark:text-slate-300">
                             {{ $service->excerpt }}
                         </p>
 
@@ -334,6 +336,8 @@ to-cyan-500/5
 
     </section>
 
+    @include('components.home.saas-ecosystem')
+
     <section id="portfolio" class="py-24">
 
         <div class="max-w-7xl mx-auto px-6">
@@ -348,7 +352,7 @@ to-cyan-500/5
         rounded-full
         border
         border-cyan-200
-        bg-white/80
+        bg-white/80 dark:bg-slate-900/80
         px-4
         py-2
         text-sm
@@ -369,7 +373,7 @@ to-cyan-500/5
                     Featured Portfolio
                 </h2>
 
-                <p class="mt-4 text-slate-600">
+                <p class="mt-4 text-slate-600 dark:text-slate-300">
                     Beberapa proyek yang telah kami bangun.
                 </p>
 
@@ -385,8 +389,8 @@ relative
 overflow-hidden
 rounded-4xl
 border
-border-white/40
-bg-white/70
+border-white/40 dark:border-slate-800
+bg-white/70 dark:bg-slate-900/80
 shadow-sm
 backdrop-blur-xl
 transition-all
@@ -444,11 +448,11 @@ group-hover:opacity-100
 
                         <div class="p-6">
 
-                            <h3 class="relative z-10 mt-4 text-xl font-bold text-slate-900">
+                            <h3 class="relative z-10 mt-4 text-xl font-bold text-slate-900 dark:text-white">
                                 {{ $portfolio->title }}
                             </h3>
 
-                            <p class="relative z-10 mt-3 text-slate-600">
+                            <p class="relative z-10 mt-3 text-slate-600 dark:text-slate-300">
                                 {{ $portfolio->excerpt }}
                             </p>
 
@@ -489,7 +493,7 @@ group-hover:opacity-100
             rounded-xl
             border
             border-slate-200
-            bg-white/70
+            bg-white/70 dark:bg-slate-900/80
             px-4
             py-2
             text-sm
@@ -532,6 +536,8 @@ pointer-events-none
 
     </section>
 
+    @include('components.home.cost-estimator')
+
     <section id="blog" class="py-24">
 
         <div class="max-w-7xl mx-auto px-6">
@@ -546,7 +552,7 @@ pointer-events-none
                 rounded-full
                 border
                 border-blue-200
-                bg-white/80
+                bg-white/80 dark:bg-slate-900/80
                 px-4
                 py-2
                 text-sm
@@ -567,7 +573,7 @@ pointer-events-none
                     Insight & Artikel Terbaru
                 </h2>
 
-                <p class="mt-4 text-slate-600">
+                <p class="mt-4 text-slate-600 dark:text-slate-300">
                     Tips teknologi, AI, website, dan transformasi digital.
                 </p>
 
@@ -581,8 +587,8 @@ pointer-events-none
             overflow-hidden
             rounded-[28px]
             border
-            border-white/40
-            bg-white/70
+            border-white/40 dark:border-slate-800
+            bg-white/70 dark:bg-slate-900/80
             shadow-sm
             backdrop-blur-xl
             transition-all
@@ -626,7 +632,7 @@ pointer-events-none
                                 {{ $post->title }}
                             </h3>
 
-                            <p class="mt-3 text-slate-600">
+                            <p class="mt-3 text-slate-600 dark:text-slate-300">
                                 {{ Str::limit(strip_tags($post->excerpt ?? ''), 120) }}
                             </p>
 
@@ -775,17 +781,19 @@ pointer-events-none
         </div>
 
     </section>
+    @include('components.home.testimonials')
+
     {{-- WORKFLOW SECTION --}}
-    <section class="py-24 bg-slate-50/70 relative overflow-hidden">
+    <section class="py-24 bg-slate-50/70 dark:bg-slate-900/30 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto">
                 <div class="inline-flex items-center rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-medium text-blue-700 shadow-sm">
                     ⚡ Alur Kerja Profesional
                 </div>
-                <h2 class="mt-6 text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
+                <h2 class="mt-6 text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
                     Bagaimana Kami Mewujudkan Sistem Digital Anda
                 </h2>
-                <p class="mt-4 text-lg text-slate-600">
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
                     Proses pengembangan terstruktur dari ide awal hingga siap digunakan oleh pengguna dan bisnis Anda.
                 </p>
             </div>
@@ -795,7 +803,7 @@ pointer-events-none
                     <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-xl font-bold text-blue-600">
                         01
                     </div>
-                    <h3 class="mt-6 text-xl font-bold text-slate-900">Konsultasi & Blueprint</h3>
+                    <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white">Konsultasi & Blueprint</h3>
                     <p class="mt-3 text-sm text-slate-600 leading-relaxed">
                         Kami mendengarkan kebutuhan proses bisnis Anda, membedah alur sistem, dan merancang arsitektur data yang tepat.
                     </p>
@@ -805,7 +813,7 @@ pointer-events-none
                     <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-50 text-xl font-bold text-cyan-600">
                         02
                     </div>
-                    <h3 class="mt-6 text-xl font-bold text-slate-900">UI/UX & Prototipe</h3>
+                    <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white">UI/UX & Prototipe</h3>
                     <p class="mt-3 text-sm text-slate-600 leading-relaxed">
                         Perancangan antarmuka visual modern, interaktif, dan mudah dipahami oleh staf, siswa, maupun konsumen Anda.
                     </p>
@@ -815,7 +823,7 @@ pointer-events-none
                     <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-xl font-bold text-indigo-600">
                         03
                     </div>
-                    <h3 class="mt-6 text-xl font-bold text-slate-900">Modern Development</h3>
+                    <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white">Modern Development</h3>
                     <p class="mt-3 text-sm text-slate-600 leading-relaxed">
                         Koding cepat dan aman menggunakan ekosistem Laravel 13, Filament Admin, dan integrasi API AI modern.
                     </p>
@@ -825,7 +833,7 @@ pointer-events-none
                     <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-xl font-bold text-emerald-600">
                         04
                     </div>
-                    <h3 class="mt-6 text-xl font-bold text-slate-900">Deploy & Pemeliharaan</h3>
+                    <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white">Deploy & Pemeliharaan</h3>
                     <p class="mt-3 text-sm text-slate-600 leading-relaxed">
                         Konfigurasi server cloud, deployment sistem bebas downtime, pelatihan penggunaan, serta garansi perbaikan bug.
                     </p>
@@ -838,13 +846,13 @@ pointer-events-none
     <section class="py-24 relative overflow-hidden" x-data="{ activeFaq: null }">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center">
-                <div class="inline-flex items-center rounded-full border border-cyan-200 bg-white/80 px-4 py-2 text-sm font-medium text-cyan-700 backdrop-blur-md">
+                <div class="inline-flex items-center rounded-full border border-cyan-200 bg-white/80 dark:bg-slate-900/80 px-4 py-2 text-sm font-medium text-cyan-700 backdrop-blur-md">
                     💡 FAQ
                 </div>
-                <h2 class="mt-6 text-4xl font-bold tracking-tight text-slate-900">
+                <h2 class="mt-6 text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
                     Pertanyaan Yang Sering Diajukan
                 </h2>
-                <p class="mt-4 text-slate-600">
+                <p class="mt-4 text-slate-600 dark:text-slate-300">
                     Informasi penting seputar pengerjaan proyek dan layanan di Ryzent.
                 </p>
             </div>
@@ -852,7 +860,7 @@ pointer-events-none
             <div class="mt-12 space-y-4">
                 <div class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition">
                     <button type="button" @click="activeFaq = (activeFaq === 1 ? null : 1)"
-                            class="flex w-full items-center justify-between text-left font-semibold text-slate-900">
+                            class="flex w-full items-center justify-between text-left font-semibold text-slate-900 dark:text-white">
                         <span class="text-lg">Berapa lama estimasi waktu pengerjaan proyek di Ryzent?</span>
                         <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" :class="{ 'rotate-180': activeFaq === 1 }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -865,7 +873,7 @@ pointer-events-none
 
                 <div class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition">
                     <button type="button" @click="activeFaq = (activeFaq === 2 ? null : 2)"
-                            class="flex w-full items-center justify-between text-left font-semibold text-slate-900">
+                            class="flex w-full items-center justify-between text-left font-semibold text-slate-900 dark:text-white">
                         <span class="text-lg">Apakah saya mendapatkan source code dan akses penuh ke server?</span>
                         <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" :class="{ 'rotate-180': activeFaq === 2 }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -878,7 +886,7 @@ pointer-events-none
 
                 <div class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition">
                     <button type="button" @click="activeFaq = (activeFaq === 3 ? null : 3)"
-                            class="flex w-full items-center justify-between text-left font-semibold text-slate-900">
+                            class="flex w-full items-center justify-between text-left font-semibold text-slate-900 dark:text-white">
                         <span class="text-lg">Apakah ada garansi pemeliharaan setelah sistem diluncurkan?</span>
                         <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" :class="{ 'rotate-180': activeFaq === 3 }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -891,7 +899,7 @@ pointer-events-none
 
                 <div class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition">
                     <button type="button" @click="activeFaq = (activeFaq === 4 ? null : 4)"
-                            class="flex w-full items-center justify-between text-left font-semibold text-slate-900">
+                            class="flex w-full items-center justify-between text-left font-semibold text-slate-900 dark:text-white">
                         <span class="text-lg">Teknologi apa saja yang digunakan oleh tim Ryzent?</span>
                         <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" :class="{ 'rotate-180': activeFaq === 4 }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -919,7 +927,7 @@ pointer-events-none
                 rounded-full
                 border
                 border-cyan-200
-                bg-white/80
+                bg-white/80 dark:bg-slate-900/80
                 px-4
                 py-2
                 text-sm
@@ -938,7 +946,7 @@ pointer-events-none
                     Mari Diskusikan Proyek Anda
                 </h2>
 
-                <p class="mt-4 text-slate-600">
+                <p class="mt-4 text-slate-600 dark:text-slate-300">
                     Ceritakan kebutuhan website, SaaS, AI, atau sistem digital yang ingin Anda bangun.
                 </p>
 
@@ -949,8 +957,8 @@ pointer-events-none
             mt-12
             rounded-4xl
             border
-            border-white/40
-            bg-white/70
+            border-white/40 dark:border-slate-800
+            bg-white/70 dark:bg-slate-900/80
             p-8
             shadow-xl
             backdrop-blur-xl

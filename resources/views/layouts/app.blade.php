@@ -33,9 +33,17 @@
     @if ($siteSettings?->favicon)
         <link rel="icon" type="image/png" href="{{ asset('storage/' . $siteSettings->favicon) }}">
     @endif
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
 
-<body class="bg-white text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased selection:bg-cyan-500 selection:text-white transition-colors duration-200">
 
     @include('components.navbar')
 
