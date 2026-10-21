@@ -8,13 +8,13 @@
                     <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->site_name }}"
                         class="h-10 w-auto rounded-lg">
                 @else
-                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 font-bold text-white shadow-md shadow-blue-500/20">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-tr from-blue-600 to-cyan-500 font-bold text-white shadow-md shadow-blue-500/20">
                         R
                     </div>
                 @endif
 
                 <div class="leading-tight">
-                    <div class="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                    <div class="text-xl font-bold tracking-tight bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                         {{ $siteSettings?->site_name ?? 'Ryzent' }}
                     </div>
                     @if ($siteSettings?->tagline)
@@ -55,12 +55,12 @@
                     <a href="https://wa.me/{{ $cleanPhone }}?text={{ rawurlencode('Halo Ryzent, saya ingin berkonsultasi mengenai proyek...') }}"
                        target="_blank"
                        rel="noopener noreferrer"
-                       class="rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105 hover:shadow-cyan-500/20">
+                       class="rounded-xl bg-linear-to-r from-blue-600 to-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105 hover:shadow-cyan-500/20">
                         Konsultasi Gratis
                     </a>
                 @else
                     <a href="{{ request()->routeIs('home') ? '#contact' : url('/#contact') }}"
-                       class="rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105">
+                       class="rounded-xl bg-linear-to-r from-blue-600 to-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105">
                         Hubungi Kami
                     </a>
                 @endif
@@ -123,12 +123,12 @@
                     <a href="https://wa.me/{{ $cleanPhone }}?text={{ rawurlencode('Halo Ryzent, saya ingin berkonsultasi mengenai proyek...') }}"
                        target="_blank"
                        rel="noopener noreferrer"
-                       class="block w-full text-center rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20">
+                       class="block w-full text-center rounded-xl bg-linear-to-r from-blue-600 to-cyan-500 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20">
                         Konsultasi Gratis
                     </a>
                 @else
                     <a href="{{ url('/#contact') }}" @click="mobileMenuOpen = false"
-                       class="block w-full text-center rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20">
+                       class="block w-full text-center rounded-xl bg-linear-to-r from-blue-600 to-cyan-500 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20">
                         Hubungi Kami
                     </a>
                 @endif

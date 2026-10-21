@@ -6,13 +6,13 @@
             class="absolute inset-0 -z-20
     bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),
     linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)]
-    bg-[size:4rem_4rem]">
+    bg-size-[4rem_4rem]">
         </div>
 
-<div class="absolute -left-40 top-10 -z-10 h-[500px] w-[500px]
+<div class="absolute -left-40 top-10 -z-10 h-125 w-125
 rounded-full bg-blue-500/15 blur-[120px]"></div>
 
-<div class="absolute -right-40 top-20 -z-10 h-[500px] w-[500px]
+<div class="absolute -right-40 top-20 -z-10 h-125 w-125
 rounded-full bg-cyan-500/15 blur-[120px]"></div>
         <div class="max-w-7xl mx-auto px-6 py-24">
 
@@ -51,11 +51,11 @@ leading-tight
 text-slate-900
 ">
                         Membangun
-                        <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                        <span class="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                             Website
                         </span>,
                         SaaS, dan
-                        <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                        <span class="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                             Solusi AI
                         </span>
                     </h1>
@@ -74,7 +74,7 @@ text-slate-900
                         <a href="{{ route('portfolio.index') }}"
                             class="
         rounded-2xl
-        bg-gradient-to-r
+        bg-linear-to-r
         from-blue-600
         to-cyan-500
         px-7
@@ -120,7 +120,7 @@ text-slate-900
                     @foreach ($portfolios as $index => $portfolio)
                         <div x-show="active === {{ $index }}" x-transition:enter="transition ease-out duration-500"
                             x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
-                            class="rounded-[32px] border border-white/40 bg-white/70 p-6 shadow-2xl backdrop-blur-xl">
+                            class="rounded-4xl border border-white/40 bg-white/70 p-6 shadow-2xl backdrop-blur-xl">
                             <div
                                 class="
     mb-4
@@ -192,7 +192,7 @@ text-slate-900
     </section>
 
     <section id="services" class="relative py-24">
-        <div class="absolute inset-0 -z-10 bg-gradient-to-b
+        <div class="absolute inset-0 -z-10 bg-linear-to-b
     from-slate-50
     via-white
     to-slate-50"></div>
@@ -262,7 +262,7 @@ mb-6
 h-1.5
 w-20
 rounded-full
-bg-gradient-to-r
+bg-linear-to-r
 from-blue-600
 to-cyan-500
 ">
@@ -313,7 +313,7 @@ opacity-0
 transition
 duration-300
 group-hover:opacity-100
-bg-gradient-to-br
+bg-linear-to-br
 from-blue-500/5
 to-cyan-500/5
 ">
@@ -383,7 +383,7 @@ to-cyan-500/5
 group
 relative
 overflow-hidden
-rounded-[32px]
+rounded-4xl
 border
 border-white/40
 bg-white/70
@@ -427,7 +427,7 @@ absolute
 inset-x-0
 top-0
 h-56
-bg-gradient-to-t
+bg-linear-to-t
 from-black/50
 to-transparent
 opacity-0
@@ -470,7 +470,7 @@ group-hover:opacity-100
                                     <a href="{{ $portfolio->demo_url }}" target="_blank"
                                         class="
             rounded-xl
-            bg-gradient-to-r
+            bg-linear-to-r
             from-blue-600
             to-cyan-500
             px-4
@@ -512,7 +512,7 @@ opacity-0
 transition
 duration-300
 group-hover:opacity-100
-bg-gradient-to-br
+bg-linear-to-br
 from-blue-500/5
 to-cyan-500/5
 pointer-events-none
@@ -663,7 +663,7 @@ pointer-events-none
             class="
         absolute
         inset-0
-        bg-gradient-to-r
+        bg-linear-to-r
         from-blue-600
         via-blue-500
         to-cyan-500
@@ -947,7 +947,7 @@ pointer-events-none
             <form action="{{ route('contact.store') }}" method="POST"
                 class="
             mt-12
-            rounded-[32px]
+            rounded-4xl
             border
             border-white/40
             bg-white/70
@@ -965,7 +965,7 @@ pointer-events-none
 
                 @if (session('success'))
                     <div class="mb-6 rounded-2xl bg-emerald-50 border border-emerald-200 p-4 text-emerald-800 flex items-center gap-3">
-                        <svg class="h-5 w-5 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="h-5 w-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
                         <span class="text-sm font-medium">{{ session('success') }}</span>
@@ -1016,7 +1016,7 @@ pointer-events-none
                 </div>
 
                 <button type="submit"
-                    class="mt-6 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105 hover:shadow-cyan-500/20">
+                    class="mt-6 inline-flex items-center gap-2 rounded-2xl bg-linear-to-r from-blue-600 to-cyan-500 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105 hover:shadow-cyan-500/20">
                     <span>Kirim Pesan Konsultasi</span>
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>

@@ -11,8 +11,8 @@
 <section class="relative overflow-hidden py-16 lg:py-24">
 
     {{-- Glow --}}
-    <div class="absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[120px]"></div>
-    <div class="absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[120px]"></div>
+    <div class="absolute -left-40 top-0 h-125 w-125 rounded-full bg-blue-500/10 blur-[120px]"></div>
+    <div class="absolute -right-40 top-0 h-125 w-125 rounded-full bg-cyan-500/10 blur-[120px]"></div>
 
     <div class="relative max-w-5xl mx-auto px-6">
 
@@ -46,7 +46,7 @@
 
         {{-- Thumbnail --}}
         @if($portfolio->thumbnail)
-            <div class="mt-10 overflow-hidden rounded-[32px] border border-white/60 shadow-xl bg-slate-100">
+            <div class="mt-10 overflow-hidden rounded-4xl border border-white/60 shadow-xl bg-slate-100">
                 <img
                     src="{{ asset('storage/' . $portfolio->thumbnail) }}"
                     alt="{{ $portfolio->title }}"
@@ -69,7 +69,7 @@
         @endif
 
         {{-- Content --}}
-        <div class="mt-12 rounded-[32px] border border-white/40 bg-white/80 p-8 lg:p-12 shadow-xl backdrop-blur-xl">
+        <div class="mt-12 rounded-4xl border border-white/40 bg-white/80 p-8 lg:p-12 shadow-xl backdrop-blur-xl">
 
             @if($portfolio->excerpt)
                 <p class="text-lg leading-relaxed text-slate-700 font-medium mb-8 pb-8 border-b border-slate-100">
@@ -115,7 +115,7 @@
                     <a href="{{ $portfolio->demo_url }}"
                        target="_blank"
                        rel="noopener"
-                       class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105">
+                       class="inline-flex items-center gap-2 rounded-2xl bg-linear-to-r from-blue-600 to-cyan-500 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:scale-105">
                         <span>Kunjungi Live Demo</span>
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -135,7 +135,7 @@
         @endif
 
         {{-- CTA --}}
-        <div class="mt-16 rounded-[32px] bg-gradient-to-r from-blue-600 to-cyan-500 p-8 lg:p-12 text-center text-white shadow-xl shadow-blue-500/10">
+        <div class="mt-16 rounded-4xl bg-linear-to-r from-blue-600 to-cyan-500 p-8 lg:p-12 text-center text-white shadow-xl shadow-blue-500/10">
 
             <h2 class="text-3xl font-bold">
                 Ingin Membangun Proyek Serupa?

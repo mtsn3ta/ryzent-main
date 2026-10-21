@@ -12,13 +12,13 @@
                         <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->site_name }}"
                             class="h-10 w-auto rounded-lg">
                     @else
-                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 font-bold text-white shadow-md shadow-blue-500/20">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-tr from-blue-600 to-cyan-500 font-bold text-white shadow-md shadow-blue-500/20">
                             R
                         </div>
                     @endif
 
                     <div>
-                        <h3 class="text-xl font-bold bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
+                        <h3 class="text-xl font-bold bg-linear-to-r from-white to-cyan-300 bg-clip-text text-transparent">
                             {{ $siteSettings?->site_name ?? 'Ryzent' }}
                         </h3>
                         @if ($siteSettings?->tagline)
