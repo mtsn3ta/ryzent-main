@@ -20,6 +20,7 @@
             <a href="{{ route('home') }}" class="flex items-center gap-3">
                 @if ($siteSettings?->logo)
                     <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->site_name }}"
+                        width="40" height="40" fetchpriority="high"
                         class="h-10 w-auto rounded-lg">
                 @else
                     <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-tr from-blue-600 to-cyan-500 font-bold text-white shadow-md shadow-blue-500/20">
@@ -128,6 +129,7 @@
                 <button type="button"
                         @click="mobileMenuOpen = !mobileMenuOpen"
                         aria-label="Toggle navigation menu"
+                        :aria-expanded="mobileMenuOpen.toString()"
                         class="inline-flex items-center justify-center rounded-xl p-2.5 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <svg x-show="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

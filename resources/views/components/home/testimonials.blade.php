@@ -74,7 +74,7 @@
                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                 </svg>
                             </template>
-                            <span class="ml-2 text-xs font-semibold text-slate-500 dark:text-slate-400" x-text="item.category"></span>
+                            <span class="ml-2 text-xs font-semibold text-slate-600 dark:text-slate-400" x-text="item.category"></span>
                         </div>
 
                         {{-- Review Quote --}}
@@ -90,19 +90,19 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-slate-900 dark:text-white text-base" x-text="item.name"></h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400" x-text="item.role"></p>
+                                    <p class="text-xs font-medium text-slate-600 dark:text-slate-400" x-text="item.role"></p>
                                 </div>
                             </div>
 
                             {{-- Navigation Buttons --}}
                             <div class="flex items-center gap-2">
-                                <button type="button" @click="prev()" aria-label="Previous testimonial"
+                                <button type="button" @click="prev()" aria-label="Ulasan sebelumnya"
                                         class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-xs transition hover:bg-slate-100 dark:hover:bg-slate-700">
                                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                                     </svg>
                                 </button>
-                                <button type="button" @click="next()" aria-label="Next testimonial"
+                                <button type="button" @click="next()" aria-label="Ulasan berikutnya"
                                         class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-xs transition hover:bg-slate-100 dark:hover:bg-slate-700">
                                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -120,6 +120,7 @@
             <div class="mt-6 flex justify-center items-center gap-2">
                 <template x-for="(item, idx) in testimonials" :key="idx">
                     <button type="button" @click="active = idx"
+                            :aria-label="'Buka testimoni nomor ' + (idx + 1) + ' dari ' + item.name"
                             class="h-2 rounded-full transition-all duration-300"
                             :class="active === idx ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300 dark:bg-slate-700'"></button>
                 </template>

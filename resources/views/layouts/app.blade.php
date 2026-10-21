@@ -28,6 +28,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('meta_title', $siteSettings?->meta_title ?: ($siteSettings?->site_name ?? 'Ryzent Cipta Digital'))">
     <meta name="twitter:description" content="@yield('meta_description', $siteSettings?->meta_description ?? 'Membangun Website, SaaS, dan Solusi AI Modern.')">
+    <meta name="theme-color" content="#020617">
+    <link rel="canonical" href="{{ url()->current() }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @if ($siteSettings?->favicon)

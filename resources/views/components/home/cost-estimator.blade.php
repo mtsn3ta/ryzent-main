@@ -169,14 +169,14 @@
                     </span>
 
                     <div class="mt-6 border-b border-slate-200/80 dark:border-slate-800 pb-6">
-                        <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                        <div class="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
                             Estimasi Total Investasi
                         </div>
                         <div class="mt-2 text-3xl lg:text-4xl font-black bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent"
                              x-text="getFormattedPrice()">
                             Rp 0
                         </div>
-                        <div class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                        <div class="mt-2 text-xs text-slate-600 dark:text-slate-400">
                             *Biaya dapat disesuaikan dengan kebutuhan spesifik & skala institusi.
                         </div>
                     </div>
@@ -184,19 +184,19 @@
                     {{-- Timeline Specs --}}
                     <div class="py-6 border-b border-slate-200/80 dark:border-slate-800 space-y-3 text-xs">
                         <div class="flex justify-between items-center">
-                            <span class="text-slate-500 dark:text-slate-400">Estimasi Timeline:</span>
+                            <span class="text-slate-600 dark:text-slate-400 font-medium">Estimasi Timeline:</span>
                             <span class="font-bold text-slate-900 dark:text-white" x-text="getEstimatedWeeks()"></span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-slate-500 dark:text-slate-400">Garansi Bug & Error:</span>
+                            <span class="text-slate-600 dark:text-slate-400 font-medium">Garansi Bug & Error:</span>
                             <span class="font-bold text-emerald-600 dark:text-emerald-400">Gratis (1-3 Bulan)</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-slate-500 dark:text-slate-400">Kepemilikan Source Code:</span>
+                            <span class="text-slate-600 dark:text-slate-400 font-medium">Kepemilikan Source Code:</span>
                             <span class="font-bold text-slate-900 dark:text-white">100% Hak Milik Klien</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-slate-500 dark:text-slate-400">Server & Deployment:</span>
+                            <span class="text-slate-600 dark:text-slate-400 font-medium">Server & Deployment:</span>
                             <span class="font-bold text-slate-900 dark:text-white">Siap Live di Cloud VPS</span>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                             </svg>
                         </a>
 
-                        <p class="text-center text-[11px] text-slate-400">
+                        <p class="text-center text-[11px] text-slate-600 dark:text-slate-400">
                             Diskusikan penawaran harga khusus atau skema pembayaran termin bersama tim konsultan kami.
                         </p>
                     </div>

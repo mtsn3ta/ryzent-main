@@ -138,7 +138,9 @@ text-slate-900
                                 🚀 Featured Project
                             </div>
                             <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}"
-                                class="w-full rounded-2xl">
+                                width="600" height="375"
+                                {{ $loop->first ? 'fetchpriority=high' : 'loading=lazy decoding=async' }}
+                                class="w-full h-auto aspect-[16/10] object-cover rounded-2xl">
 
                             <div class="mt-5">
 
@@ -175,9 +177,11 @@ text-slate-900
 
                         @foreach ($portfolios as $index => $portfolio)
                             <button @click="active = {{ $index }}"
+                                type="button"
+                                aria-label="Lihat slide proyek {{ $index + 1 }}: {{ $portfolio->title }}"
                                 :class="active === {{ $index }} ?
                                     'bg-blue-600' :
-                                    'bg-slate-300'"
+                                    'bg-slate-300 dark:bg-slate-700'"
                                 class="h-3 w-3 rounded-full transition"></button>
                         @endforeach
 
@@ -401,6 +405,7 @@ hover:shadow-2xl
 
                         @if ($portfolio->thumbnail)
                             <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->title }}"
+                                width="400" height="224" loading="lazy" decoding="async"
                                 class="
         h-56
         w-full
@@ -458,12 +463,13 @@ group-hover:opacity-100
 
                             <div class="relative z-10 mt-6 flex items-center justify-between">
 
-                                <span class="text-sm text-slate-500">
+                                <span class="text-sm font-medium text-slate-600 dark:text-slate-400">
                                     {{ $portfolio->status }}
                                 </span>
 
                                 <a href="{{ route('portfolio.show', $portfolio->slug) }}"
-                                    class="font-medium text-blue-600">
+                                    aria-label="Lihat detail proyek {{ $portfolio->title }}"
+                                    class="font-semibold text-blue-700 dark:text-cyan-400 hover:underline">
                                     Detail →
                                 </a>
 
@@ -598,6 +604,7 @@ pointer-events-none
             ">
                         @if ($post->featured_image ?? $post->thumbnail)
                             <img src="{{ asset('storage/' . ($post->featured_image ?? $post->thumbnail)) }}" alt="{{ $post->title }}"
+                                width="400" height="224" loading="lazy" decoding="async"
                                 class="
         h-56
         w-full
@@ -613,12 +620,12 @@ pointer-events-none
                                 class="
         inline-flex
         rounded-full
-        bg-blue-50
+        bg-blue-50 dark:bg-blue-950/60
         px-3
         py-1
         text-xs
-        font-medium
-        text-blue-600
+        font-semibold
+        text-blue-700 dark:text-cyan-300
         ">
                                 {{ optional($post->category)->name ?? 'Artikel' }}
                             </div>
@@ -627,7 +634,7 @@ pointer-events-none
         mt-4
         text-xl
         font-bold
-        text-slate-900
+        text-slate-900 dark:text-white
         ">
                                 {{ $post->title }}
                             </h3>
@@ -638,11 +645,13 @@ pointer-events-none
 
                             <div class="mt-6 flex items-center justify-between">
 
-                                <span class="text-sm text-slate-500">
+                                <span class="text-sm font-medium text-slate-600 dark:text-slate-400">
                                     {{ $post->created_at->format('d M Y') }}
                                 </span>
 
-                                <a href="{{ route('blog.show', $post->slug) }}" class="font-medium text-blue-600">
+                                <a href="{{ route('blog.show', $post->slug) }}"
+                                    aria-label="Baca artikel {{ $post->title }}"
+                                    class="font-semibold text-blue-700 dark:text-cyan-400 hover:underline">
                                     Baca →
                                 </a>
 
@@ -799,42 +808,42 @@ pointer-events-none
             </div>
 
             <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                <div class="relative rounded-3xl border border-slate-200/80 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-xl font-bold text-blue-600">
+                <div class="relative rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-950/60 text-xl font-bold text-blue-700 dark:text-cyan-400">
                         01
                     </div>
                     <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white">Konsultasi & Blueprint</h3>
-                    <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         Kami mendengarkan kebutuhan proses bisnis Anda, membedah alur sistem, dan merancang arsitektur data yang tepat.
                     </p>
                 </div>
 
-                <div class="relative rounded-3xl border border-slate-200/80 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-50 text-xl font-bold text-cyan-600">
+                <div class="relative rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-xl font-bold text-cyan-700 dark:text-cyan-300">
                         02
                     </div>
                     <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white">UI/UX & Prototipe</h3>
-                    <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         Perancangan antarmuka visual modern, interaktif, dan mudah dipahami oleh staf, siswa, maupun konsumen Anda.
                     </p>
                 </div>
 
-                <div class="relative rounded-3xl border border-slate-200/80 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-xl font-bold text-indigo-600">
+                <div class="relative rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-xl font-bold text-indigo-700 dark:text-indigo-400">
                         03
                     </div>
                     <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white">Modern Development</h3>
-                    <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         Koding cepat dan aman menggunakan ekosistem Laravel 13, Filament Admin, dan integrasi API AI modern.
                     </p>
                 </div>
 
-                <div class="relative rounded-3xl border border-slate-200/80 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-xl font-bold text-emerald-600">
+                <div class="relative rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 text-xl font-bold text-emerald-700 dark:text-emerald-400">
                         04
                     </div>
                     <h3 class="mt-6 text-xl font-bold text-slate-900 dark:text-white">Deploy & Pemeliharaan</h3>
-                    <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         Konfigurasi server cloud, deployment sistem bebas downtime, pelatihan penggunaan, serta garansi perbaikan bug.
                     </p>
                 </div>
@@ -858,54 +867,58 @@ pointer-events-none
             </div>
 
             <div class="mt-12 space-y-4">
-                <div class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition">
+                <div class="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition">
                     <button type="button" @click="activeFaq = (activeFaq === 1 ? null : 1)"
+                            :aria-expanded="activeFaq === 1"
                             class="flex w-full items-center justify-between text-left font-semibold text-slate-900 dark:text-white">
                         <span class="text-lg">Berapa lama estimasi waktu pengerjaan proyek di Ryzent?</span>
                         <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" :class="{ 'rotate-180': activeFaq === 1 }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="activeFaq === 1" x-cloak class="mt-4 text-sm text-slate-600 leading-relaxed">
+                    <div x-show="activeFaq === 1" x-cloak class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         Waktu pengerjaan bervariasi sesuai kompleksitas sistem. Untuk landing page atau website profil instansi umumnya memakan waktu 1–2 minggu. Untuk sistem informasi terpadu, platform SaaS, atau solusi AI berkisar antara 3–6 minggu dengan timeline yang teratur.
                     </div>
                 </div>
 
-                <div class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition">
+                <div class="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition">
                     <button type="button" @click="activeFaq = (activeFaq === 2 ? null : 2)"
+                            :aria-expanded="activeFaq === 2"
                             class="flex w-full items-center justify-between text-left font-semibold text-slate-900 dark:text-white">
                         <span class="text-lg">Apakah saya mendapatkan source code dan akses penuh ke server?</span>
                         <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" :class="{ 'rotate-180': activeFaq === 2 }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="activeFaq === 2" x-cloak class="mt-4 text-sm text-slate-600 leading-relaxed">
+                    <div x-show="activeFaq === 2" x-cloak class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         Ya, 100%. Setelah serah terima proyek selesai, Anda akan menerima akses server cloud (VPS/cPanel), repositori source code git, serta kredensial administrator penuh tanpa keterikatan sewa lisensi tersembunyi.
                     </div>
                 </div>
 
-                <div class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition">
+                <div class="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition">
                     <button type="button" @click="activeFaq = (activeFaq === 3 ? null : 3)"
+                            :aria-expanded="activeFaq === 3"
                             class="flex w-full items-center justify-between text-left font-semibold text-slate-900 dark:text-white">
                         <span class="text-lg">Apakah ada garansi pemeliharaan setelah sistem diluncurkan?</span>
                         <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" :class="{ 'rotate-180': activeFaq === 3 }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="activeFaq === 3" x-cloak class="mt-4 text-sm text-slate-600 leading-relaxed">
+                    <div x-show="activeFaq === 3" x-cloak class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         Tentu saja. Ryzent memberikan garansi perbaikan bug dan pendampingan teknis gratis selama masa pemeliharaan (biasanya 1–3 bulan pertama) untuk memastikan sistem Anda beroperasi tanpa kendala.
                     </div>
                 </div>
 
-                <div class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition">
+                <div class="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition">
                     <button type="button" @click="activeFaq = (activeFaq === 4 ? null : 4)"
+                            :aria-expanded="activeFaq === 4"
                             class="flex w-full items-center justify-between text-left font-semibold text-slate-900 dark:text-white">
                         <span class="text-lg">Teknologi apa saja yang digunakan oleh tim Ryzent?</span>
                         <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" :class="{ 'rotate-180': activeFaq === 4 }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="activeFaq === 4" x-cloak class="mt-4 text-sm text-slate-600 leading-relaxed">
+                    <div x-show="activeFaq === 4" x-cloak class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                         Kami fokus pada stack teknologi modern dan handal: backend Laravel 13 & PHP 8.3+, Filament Admin Panel v4, Tailwind CSS, Alpine.js, integrasi AI API (Gemini/OpenAI), serta deployment Linux Ubuntu VPS dengan Nginx & MySQL/MariaDB.
                     </div>
                 </div>
@@ -968,7 +981,8 @@ pointer-events-none
 
                 {{-- Honeypot anti-spam (tersembunyi dari user) --}}
                 <div class="hidden" aria-hidden="true">
-                    <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+                    <label for="website_hp">Jangan diisi (anti-spam)</label>
+                    <input type="text" id="website_hp" name="website_hp" tabindex="-1" autocomplete="off">
                 </div>
 
                 @if (session('success'))
@@ -993,34 +1007,34 @@ pointer-events-none
 
                 <div class="grid gap-6 md:grid-cols-2">
                     <div>
-                        <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Nama Lengkap *</label>
+                        <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Nama Lengkap *</label>
                         <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Contoh: Budi Santoso" required
-                            class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+                            class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
                     </div>
 
                     <div>
-                        <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Alamat Email *</label>
+                        <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Alamat Email *</label>
                         <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="budi@example.com" required
-                            class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+                            class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
                     </div>
                 </div>
 
                 <div class="mt-6">
-                    <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">WhatsApp / Nomor HP</label>
+                    <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">WhatsApp / Nomor HP</label>
                     <input type="text" id="phone" name="phone" value="{{ old('phone') }}" placeholder="08123456789"
-                        class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
                 </div>
 
                 <div class="mt-6">
-                    <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Topik / Subjek Proyek</label>
+                    <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Topik / Subjek Proyek</label>
                     <input type="text" id="subject" name="subject" value="{{ old('subject') }}" placeholder="Contoh: Pembuatan Website Sekolah & Sistem Pembayaran"
-                        class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
                 </div>
 
                 <div class="mt-6">
-                    <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Detail Kebutuhan Proyek *</label>
+                    <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Detail Kebutuhan Proyek *</label>
                     <textarea id="message" name="message" rows="5" placeholder="Ceritakan gambaran sistem, perkiraan fitur, atau kendala yang ingin diselesaikan..." required
-                        class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">{{ old('message') }}</textarea>
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">{{ old('message') }}</textarea>
                 </div>
 
                 <button type="submit"

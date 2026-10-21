@@ -10,6 +10,7 @@
                 <a href="{{ route('home') }}" class="flex items-center gap-3">
                     @if ($siteSettings?->logo)
                         <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="{{ $siteSettings->site_name }}"
+                            width="40" height="40" loading="lazy" decoding="async"
                             class="h-10 w-auto rounded-lg">
                     @else
                         <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-tr from-blue-600 to-cyan-500 font-bold text-white shadow-md shadow-blue-500/20">
@@ -156,13 +157,13 @@
         </div>
 
         {{-- Bottom Copyright --}}
-        <div class="mt-16 border-t border-slate-900 pt-8 flex flex-col items-center justify-between gap-4 text-xs text-slate-500 md:flex-row">
+        <div class="mt-16 border-t border-slate-900 pt-8 flex flex-col items-center justify-between gap-4 text-xs text-slate-400 md:flex-row">
             <p>
                 © {{ date('Y') }} {{ $siteSettings?->site_name ?? 'Ryzent Cipta Digital' }}. All rights reserved.
             </p>
             <p class="flex items-center gap-2">
                 <span>Built with</span>
-                <span class="text-red-500">♥</span>
+                <span class="text-red-500" aria-label="cinta">♥</span>
                 <span>using Laravel 13, Filament & Tailwind CSS</span>
             </p>
         </div>

@@ -55,7 +55,7 @@
                 <div class="mt-2 text-xs lg:text-sm font-semibold text-slate-800 dark:text-slate-200">
                     Proyek Digital & Sistem Aktif
                 </div>
-                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
                     Sekolah, olahraga, SaaS & korporat
                 </p>
             </div>
@@ -68,7 +68,7 @@
                 <div class="mt-2 text-xs lg:text-sm font-semibold text-slate-800 dark:text-slate-200">
                     Data Siswa, Atlet & Pengguna
                 </div>
-                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
                     Terkelola cepat tanpa kendala server
                 </p>
             </div>
@@ -81,7 +81,7 @@
                 <div class="mt-2 text-xs lg:text-sm font-semibold text-slate-800 dark:text-slate-200">
                     Reliabilitas & Server Uptime
                 </div>
-                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
                     Optimalisasi Nginx & Cloud VPS
                 </p>
             </div>
@@ -94,7 +94,7 @@
                 <div class="mt-2 text-xs lg:text-sm font-semibold text-slate-800 dark:text-slate-200">
                     Dukungan & Pemeliharaan
                 </div>
-                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
                     Garansi bug & pendampingan tim
                 </p>
             </div>
@@ -103,7 +103,7 @@
 
         {{-- TECH STACK GRID --}}
         <div class="mt-16 text-center">
-            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+            <p class="text-xs font-bold uppercase tracking-widest text-slate-600 dark:text-slate-400">
                 Pondasi Teknologi Mutakhir Yang Digunakan Ryzent
             </p>
 
